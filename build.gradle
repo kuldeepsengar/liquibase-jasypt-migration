@@ -1,0 +1,31 @@
+plugins {
+    id 'org.springframework.boot' version '1.5.2.RELEASE'
+    id 'java'
+}
+
+group 'com.kuldeep.examples'
+version '1.0-SNAPSHOT'
+
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+
+}
+
+dependencies {
+    compile group:'org.liquibase',name:'liquibase-core', version: '3.5.3'
+    runtime group: 'com.h2database', name: 'h2', version: '1.4.196'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-jdbc', version: '1.5.6.RELEASE'
+    compile 'org.springframework.boot:spring-boot-starter:1.5.2.RELEASE'
+    compile('org.jasypt:jasypt-spring31:1.9.2')
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.0'
+}
+
+bootRun{
+    systemProperties System.properties
+}
